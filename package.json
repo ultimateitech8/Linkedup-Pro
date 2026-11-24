@@ -1,0 +1,13 @@
+{
+  "name": "linkedup-pro",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": ["apps/web", "apps/api"],
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "dev": "concurrently --kill-others -n api,web \"npm run dev -w @linkedup/api\" \"npm run dev -w @linkedup/web\"",
+    "build": "npm run build -w @linkedup/api && npm run build -w @linkedup/web",
+    "typecheck": "npm run typecheck -w @linkedup/api && npm run typecheck -w @linkedup/web"
+  },
+  "devDependencies": { "concurrently": "^9.2.1", "typescript": "^5.9.3" }
+}
